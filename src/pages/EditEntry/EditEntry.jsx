@@ -15,14 +15,19 @@ function EditEntry() {
   }, [id]);
 
   const handleChange = (e) => {
-    setEntry({ ...entry, [e.target.name]: e.target.value });
+    setEntry({
+      ...entry,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault();
+
     const entries = getEntries();
 
-    const updated = entries.map((e) =>
-      e.id === entry.id ? entry : e
+    const updated = entries.map((item) =>
+      item.id === entry.id ? entry : item
     );
 
     saveEntries(updated);
@@ -32,37 +37,43 @@ function EditEntry() {
   if (!entry) return <p>Ladataan...</p>;
 
   return (
-    <div>
-      <h2>Muokkaa merkintää</h2>
+    <div className="form-container">
+      <h2>Muokkaa kipumerkintää</h2>
 
-      <input
-        name="date"
-        value={entry.date}
-        onChange={handleChange}
-      />
+      <form onSubmit={handleSave}>
+        <input
+          type="date"
+          name="date"
+          value={entry.date}
+          onChange={handleChange}
+        />
 
-      <input
-        name="area"
-        value={entry.area}
-        onChange={handleChange}
-      />
+        <input
+          type="text"
+          name="area"
+          placeholder="Kipualue"
+          value={entry.area}
+          onChange={handleChange}
+        />
 
-      <input
-        name="level"
-        type="number"
-        value={entry.level}
-        onChange={handleChange}
-      />
+        <input
+          type="number"
+          name="level"
+          min="0"
+          max="10"
+          value={entry.level}
+          onChange={handleChange}
+        />
 
-      <textarea
-        name="description"
-        value={entry.description}
-        onChange={handleChange}
-      />
+        <textarea
+          name="description"
+          placeholder="Kuvaus"
+          value={entry.description}
+          onChange={handleChange}
+        />
 
-      <button onClick={handleSave}>
-        Tallenna muutokset
-      </button>
+        <button type="submit">Tallenna muutokset</button>
+      </form>
     </div>
   );
 }
