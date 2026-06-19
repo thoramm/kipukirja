@@ -1,5 +1,7 @@
+import EntryForm from "../../components/EntryForm/EntryForm";
+
 function AddEntry() {
-  return <h2>Lisää kipumerkintä</h2>;
+  return <EntryForm />;
 }
 
 export default AddEntry;
