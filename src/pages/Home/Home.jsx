@@ -23,19 +23,28 @@ function Home() {
       {entries.length === 0 && <p>Ei merkintöjä vielä</p>}
 
       {entries.map((e) => (
-        
-        <div key={e.id} style={{ border: "1px solid #ccc", margin: 10, padding: 10 }}>
+        <div key={e.id} className="entry-card">
           <h3>{e.date}</h3>
-          <p>Alue: {e.area}</p>
-          <p>Kipu: {e.level}/10</p>
+
+          <p>
+            <strong>Alue:</strong> {e.area}
+          </p>
+
+          <p>
+            <strong>Kipu:</strong> {e.level}/10
+          </p>
+
           <p>{e.description}</p>
 
-          <button onClick={() => handleDelete(e.id)}>
-            Poista
-          </button>
-          <button onClick={() => navigate(`/edit/${e.id}`)}>
-            Muokkaa
-          </button>
+          <div className="card-actions">
+            <button onClick={() => navigate(`/edit/${e.id}`)}>
+              Muokkaa
+            </button>
+
+            <button onClick={() => handleDelete(e.id)}>
+              Poista
+            </button>
+          </div>
         </div>
       ))}
     </div>
