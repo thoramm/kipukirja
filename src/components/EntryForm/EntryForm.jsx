@@ -7,6 +7,9 @@ function EntryForm() {
   const [level, setLevel] = useState(0);
   const [description, setDescription] = useState("");
 
+  // 🧾 uusi: viestitila (toast)
+  const [message, setMessage] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -15,7 +18,7 @@ function EntryForm() {
       date,
       area,
       level,
-      description
+      description,
     };
 
     const existing = getEntries();
@@ -26,12 +29,20 @@ function EntryForm() {
     setLevel(0);
     setDescription("");
 
-    alert("Merkintä lisätty!");
+    // ⚡ UX parannus: alert → toast
+    setMessage("Merkintä lisätty!");
+
+    setTimeout(() => {
+      setMessage("");
+    }, 2000);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Lisää kipumerkintä</h2>
+
+      {/* 🧾 toast-ilmoitus */}
+      {message && <p className="toast">{message}</p>}
 
       <input
         type="date"

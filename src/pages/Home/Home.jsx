@@ -23,11 +23,46 @@ function Home() {
     return "#e74c3c"; // punainen
   };
 
+  const totalEntries = entries.length;
+
+const averagePain =
+  totalEntries > 0
+    ? (
+        entries.reduce((sum, e) => sum + Number(e.level), 0) /
+        totalEntries
+      ).toFixed(1)
+    : 0;
+
+const latestEntry =
+  entries.length > 0
+    ? entries[entries.length - 1]
+    : null;
+
   return (
     <div>
       <h2>Kipumerkinnät</h2>
 
-      {entries.length === 0 && <p>Ei merkintöjä vielä</p>}
+      <div className="stats">
+  <p><strong>Merkintöjä:</strong> {totalEntries}</p>
+  <p><strong>Keskimääräinen kipu:</strong> {averagePain}/10</p>
+
+  {latestEntry && (
+    <p>
+      <strong>Viimeisin:</strong> {latestEntry.date} ({latestEntry.area})
+    </p>
+  )}
+</div>
+
+{entries.length === 0 && (
+  <div className="empty-state">
+    <h3>Ei merkintöjä vielä</h3>
+    <p>Aloita lisäämällä ensimmäinen kipumerkintä.</p>
+
+    <button onClick={() => navigate("/add")}>
+      Lisää merkintä
+    </button>
+  </div>
+)}
 
       {entries.map((e) => (
         <div key={e.id} className="entry-card">
