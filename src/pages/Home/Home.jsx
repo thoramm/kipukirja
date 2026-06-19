@@ -16,6 +16,13 @@ function Home() {
     saveEntries(updated);
   };
 
+  // 🎨 Kiputason värifunktio
+  const getPainColor = (level) => {
+    if (level <= 3) return "#2ecc71"; // vihreä
+    if (level <= 6) return "#f1c40f"; // keltainen
+    return "#e74c3c"; // punainen
+  };
+
   return (
     <div>
       <h2>Kipumerkinnät</h2>
@@ -31,7 +38,15 @@ function Home() {
           </p>
 
           <p>
-            <strong>Kipu:</strong> {e.level}/10
+            <strong>Kipu:</strong>{" "}
+            <span
+              style={{
+                color: getPainColor(e.level),
+                fontWeight: "bold",
+              }}
+            >
+              {e.level}/10
+            </span>
           </p>
 
           <p>{e.description}</p>
