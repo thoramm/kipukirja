@@ -160,6 +160,13 @@ button:hover {
   color: #333;
 }
 
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 
 @media (max-width: 600px) {
   nav ul {
@@ -186,5 +193,14 @@ button:hover {
 
   .stats {
     padding: 10px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .app-header h1 {
+    font-size: 18px;
   }
 }

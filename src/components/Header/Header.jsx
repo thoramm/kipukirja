@@ -1,8 +1,10 @@
+import { FaHeartbeat } from "react-icons/fa";
+
 function Header() {
   return (
-    <header>
+    <header className="app-header">
+      <FaHeartbeat size={26} color="white" />
       <h1>Kipupäiväkirja</h1>
-      <p>Seuraa kehon kiputiloja</p>
     </header>
   );
 }
