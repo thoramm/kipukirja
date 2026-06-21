@@ -3,6 +3,7 @@ body {
   margin: 0;
   background: #f5f7fb;
   color: #222;
+  line-height: 1.4;
 }
 
 header {
@@ -40,6 +41,12 @@ main {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.entry-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .entry-card h3 {
@@ -77,6 +84,11 @@ button {
   background: #2c7be5;
   color: white;
   cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #1f66c2;
 }
 
 .stats {
@@ -85,6 +97,10 @@ button {
   margin-bottom: 12px;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.stats p {
+  margin: 6px 0;
 }
 
 .toast {
@@ -122,5 +138,18 @@ button {
 
   .card-actions {
     flex-direction: column;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .entry-card {
+    padding: 14px;
+  }
+
+  .stats {
+    padding: 10px;
   }
 }

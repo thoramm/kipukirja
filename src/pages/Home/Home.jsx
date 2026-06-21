@@ -38,6 +38,8 @@ const latestEntry =
     ? entries[entries.length - 1]
     : null;
 
+    
+
   return (
     <div>
       <h2>Kipumerkinnät</h2>
