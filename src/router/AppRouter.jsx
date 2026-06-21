@@ -1,7 +1,6 @@
+import Stats from "../pages/Stats/Stats";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import MainLayout from "../layout/MainLayout/MainLayout";
-
 import Home from "../pages/Home/Home";
 import AddEntry from "../pages/AddEntry/AddEntry";
 import EditEntry from "../pages/EditEntry/EditEntry";
@@ -16,6 +15,7 @@ function AppRouter() {
           <Route path="/add" element={<AddEntry />} />
           <Route path="/edit/:id" element={<EditEntry />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/stats" element={<Stats />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>

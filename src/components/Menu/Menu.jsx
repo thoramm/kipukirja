@@ -10,6 +10,9 @@ function Menu() {
         <li>
           <Link to="/add">Lisää merkintä</Link>
         </li>
+        <li>
+          <Link to="/stats">Tilastot</Link>
+        </li>
       </ul>
     </nav>
   );
