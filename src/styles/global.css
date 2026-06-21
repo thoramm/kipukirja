@@ -10,7 +10,30 @@ header {
   background: #2c7be5;
   color: white;
   padding: 15px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   text-align: center;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.85;
 }
 
 nav ul {
@@ -32,21 +55,52 @@ main {
   padding: 15px;
 }
 
+.entry-form {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  width: 100%;
+  max-width: 420px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2c7be5;
+  box-shadow: 0 0 0 2px rgba(44, 123, 229, 0.2);
+}
+
 .entry-card {
   background: white;
   padding: 16px;
   margin-bottom: 12px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
   display: flex;
   flex-direction: column;
   gap: 6px;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .entry-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
 .entry-card h3 {
@@ -64,64 +118,16 @@ main {
   flex: 1;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input,
-textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-button {
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #2c7be5;
-  color: white;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-button:hover {
-  background: #1f66c2;
-}
-
 .stats {
   background: white;
   padding: 12px;
   margin-bottom: 12px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .stats p {
   margin: 6px 0;
-}
-
-.toast {
-  background: #2ecc71;
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.empty-state {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.empty-state button {
-  margin-top: 10px;
 }
 
 .chart {
@@ -160,13 +166,42 @@ button:hover {
   color: #333;
 }
 
-.app-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.toast {
+  background: #2ecc71;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-align: center;
+  animation: fadeIn 0.2s ease;
 }
 
+.empty-state {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 10px;
+}
+
+.empty-state h3 {
+  margin: 0 0 10px 0;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2c7be5;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #1f66c2;
+}
 
 @media (max-width: 600px) {
   nav ul {
@@ -197,10 +232,21 @@ button:hover {
 
   .app-header {
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
   }
 
-  .app-header h1 {
+  .header-text h1 {
     font-size: 18px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
